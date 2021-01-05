@@ -9,11 +9,59 @@
   </head>
   <body>
     <div class="container">
-      <h1>Santa's Little Helper</h1>
-      <form action="#" method="POST">
+      <h1>🎅️ Santa's Little Helper 🎅️</h1>
+
+      <!-- Forma -->
+      <form action="./sacuvaj_zelju.php" method="POST">
         <input type="text" name="first-name" placeholder="Unesi svoje ime" />
         <input type="text" name="last-name" placeholder="Unesi svoje prezime" />
+        <select name="city">
+          <option value="pg" selected>Podgorica</option>
+          <option value="nk">Nikšić</option>
+          <option value="pv">Pljevlja</option>
+          <option value="bp">Bijelo Polje</option>
+          <option value="ct">Cetinje</option>
+          <option value="br">Bar</option>
+          <option value="hn">Herceg Novi</option>
+          <option value="ba">Berane</option>
+          <option value="bd">Budva</option>
+          <option value="ul">Ulcinj</option>
+          <option value="tv">Tivat</option>
+          <option value="ro">Rožaje</option>
+          <option value="ko">Kotor</option>
+          <option value="dg">Danilovgrad</option>
+          <option value="mk">Mojkovac</option>
+          <option value="pl">Plav</option>
+          <option value="kl">Kolašin</option>
+          <option value="zb">Žabljak</option>
+          <option value="pz">Plužine</option>
+          <option value="an">Andrijevica</option>
+          <option value="sv">Šavnik</option>
+        </select>
+        <div class="checkbox">
+          <label for="was-good">
+            Potvrđujem da sam bio/la dobar/dobra ove godine:
+          </label>
+          <input type="checkbox" name="was-good" id="was-good" />
+        </div>
+        <textarea
+          placeholder="Šta Deda Mraz može učiniti za tebe?"
+          name="wish"
+          rows="8"
+        ></textarea>
+        <input type="submit" value="Pošalji" />
       </form>
     </div>
+    <!-- CDN i skripta za pahulje -->
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+    <script>
+      const sf = new Snowflakes({
+        color: "#ffffff",
+        count: 100,
+        speed: 1.5,
+        minSize: 15,
+        maxSize: 30,
+      });
+    </script>
   </body>
 </html>

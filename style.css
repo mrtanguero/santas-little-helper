@@ -18,29 +18,101 @@ body {
 }
 
 .container {
-  background-color: khaki;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(197, 3, 3, 0.8),
+      rgba(148, 0, 0, 0.8)
+    ),
+    url(./img/christmas.jpg);
+  background-position: bottom;
+  background-size: cover;
   border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 
   width: 60vw;
   margin: auto;
   margin-top: 50px;
 
+  padding-top: 20px;
+  padding-bottom: 20px;
+
   display: flex;
   flex-direction: column;
-}
-
-h1 {
-  font-family: "Lobster", sans-serif;
-  font-size: 3em;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
   align-items: center;
 }
 
-input {
+.confirmation-container {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -100%);
+}
+
+h1,
+h2 {
+  font-family: "Lobster", sans-serif;
+  font-size: 3em;
+  color: rgb(253, 253, 253);
+
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 30px 40px;
+  font-size: 2em;
+}
+
+form {
+  width: 80%;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+input:not([type="checkbox"]),
+select,
+option,
+textarea {
+  background-color: rgba(255, 255, 255, 0.719);
+  color: rgb(37, 37, 37);
+
+  border: none;
+  border-radius: 5px;
+
+  width: 80%;
+  padding: 10px;
+
+  font-family: inherit;
+  font-size: 1.2em;
+
+  margin-bottom: 10px;
+}
+
+input:not([type="checkbox"])::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: rgb(73, 73, 73);
+}
+
+input:not([type="checkbox"]):focus,
+select:focus,
+option,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px 1px rgba(252, 252, 252, 0.8);
+}
+
+.checkbox {
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.checkbox label {
+  color: rgb(253, 253, 253);
+  font-size: 1.2em;
 }
