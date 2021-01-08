@@ -46,7 +46,7 @@
           $wish = json_decode($json_entry, true);
           echo '<tr>';
           foreach ($wish as $field) {
-            echo '<td>' . $field . '</td\n>';
+            echo '<td>' . $field . '</td>';
           }
           echo '</tr>';
         }
