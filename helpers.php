@@ -24,6 +24,7 @@ $cities = [
   'sv' => 'Šavnik'
 ];
 
+// Ispituje da li je string sastavljen isključivo od slova
 function is_alpha_mne($string)
 {
   $abeceda = mb_str_split('abcdefghijklmnopqrstuvwxyzčćšđžśź');
@@ -37,6 +38,7 @@ function is_alpha_mne($string)
   return true;
 }
 
+// Radi validaciju unosa u formu i vraća niz sa šiframa grešaka, ako ih ima 
 function validacija()
 {
   global $cities;
@@ -80,6 +82,7 @@ function validacija()
   return $greske;
 }
 
+// Kreira novi niz od $_POST za upis u fajl
 function create_arr($arr)
 {
   $res = [];

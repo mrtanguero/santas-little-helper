@@ -21,7 +21,6 @@ if (count($greske) === 0) {
   exit();
 } else {
   echo json_encode($_POST);
-  print_r($greske);
   header(
     'Location: ./index.html'
       . '?query=' . json_encode($_POST)

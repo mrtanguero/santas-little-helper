@@ -24,7 +24,7 @@ body {
       rgba(197, 3, 3, 0.8),
       rgba(92, 0, 0, 0.8)
     ),
-    url(./img/christmas.jpg);
+    url(../img/christmas.jpg);
   background-position: bottom;
   background-size: cover;
   border-radius: 5px;
@@ -41,7 +41,7 @@ body {
   align-items: center;
 }
 
-/* Samo za konfirmaciju */
+/* Container samo za stranicu konfirmacije */
 .confirmation-container {
   position: absolute;
   top: 50vh;
@@ -92,7 +92,9 @@ form {
   flex-direction: column;
 }
 
+/******************/
 /* Inputs styling */
+
 input:not([type="checkbox"]),
 select,
 option,
@@ -172,6 +174,7 @@ select:focus ~ span {
 
 /*************/
 /* CHECKBOX  */
+
 .checkbox {
   display: block;
   width: 80%;
@@ -186,7 +189,7 @@ select:focus ~ span {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
+/* Sakrij default checkbox */
 .checkbox input {
   position: absolute;
   opacity: 0;
@@ -195,7 +198,7 @@ select:focus ~ span {
   width: 0;
 }
 
-/* Create a custom checkbox */
+/* Kreiraj novi checkbox */
 .checkmark {
   position: absolute;
   top: 0;
@@ -207,28 +210,24 @@ select:focus ~ span {
   transition: all 0.2s;
 }
 
-/* On focus highlight checkbox */
+/* Na focus checkboxa */
 .checkbox input:focus ~ .checkmark {
   background-color: rgb(253, 253, 253);
   box-shadow: 0 0 5px 3px rgb(255, 255, 255);
 }
 
-/* On hover highlight checkbox */
-.checkbox input:hover ~ .checkmark {
-  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
-}
-
-/* On mouse-over, add a grey background color */
+/* Na hover na checkbox div, dodaj drugačiji stajling */
 .checkbox:hover input ~ .checkmark {
+  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a red background */
+/* Kad štrikiramo, dodaj crvenu pozadinu */
 .checkbox input:checked ~ .checkmark {
   background-color: #d23732;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Dodaj štrik simbol */
 .checkmark:after {
   content: "";
   position: absolute;
@@ -236,12 +235,12 @@ select:focus ~ span {
   transition: all 0.2s;
 }
 
-/* Show the checkmark when checked */
+/* Prikaži štrik kad je checkbox checked */
 .checkbox input:checked ~ .checkmark:after {
   opacity: 1;
 }
 
-/* Style the checkmark/indicator */
+/* Styling štrika */
 .checkbox .checkmark:after {
   left: 10px;
   top: 5px;
@@ -300,6 +299,7 @@ th {
 
 th:last-child {
   text-align: center;
+  width: 60%;
 }
 
 td,

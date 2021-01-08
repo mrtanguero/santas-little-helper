@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Santa's Little Helper</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <script defer src="./js/script.js"></script>
   </head>
@@ -22,6 +22,7 @@
           placeholder="Unesi svoje ime"
           id="first-name"
         />
+
         <label for="last-name" id="last-name-label"></label>
         <input
           type="text"
@@ -29,6 +30,8 @@
           placeholder="Unesi svoje prezime"
           id="last-name"
         />
+
+        <!-- Div za custom styling strelice -->
         <div class="select-container">
           <label for="city" id="city-label"></label>
           <select name="city" id="city">
@@ -55,13 +58,16 @@
             <option value="an">Andrijevica</option>
             <option value="sv">Šavnik</option>
           </select>
+          <!-- Ovaj span koristim za custom strelicu -->
           <span></span>
         </div>
+
         <label class="checkbox" for="was-good">
           Potvrđujem da sam bio/la dobar/dobra ove godine:
           <input type="checkbox" name="was-good" id="was-good" />
           <span class="checkmark"></span>
         </label>
+
         <label for="wish-text" id="wish-text-label"></label>
         <textarea
           placeholder="Šta Deda Mraz može učiniti za tebe?"
@@ -69,6 +75,7 @@
           rows="8"
           id="wish-text"
         ></textarea>
+
         <input class="btn" type="submit" value="Pošalji" />
       </form>
     </div>
