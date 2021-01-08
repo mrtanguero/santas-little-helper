@@ -41,7 +41,7 @@ body {
   align-items: center;
 }
 
-/* Only for confirmation dijalog */
+/* Samo za konfirmaciju */
 .confirmation-container {
   position: absolute;
   top: 50vh;
@@ -54,8 +54,10 @@ h2 {
   font-family: "Lobster", sans-serif;
   font-size: 3em;
   color: rgb(253, 253, 253);
+}
 
-  /* margin-bottom: 20px; */
+h2 {
+  font-size: 2.5em;
 }
 
 a:link,
@@ -111,28 +113,65 @@ textarea {
   transition: all 0.1s;
 }
 
+.select-container {
+  text-align: center;
+  width: 80%;
+  position: relative;
+  margin-top: 10px;
+}
+
+select {
+  width: 100%;
+  appearance: none;
+}
+
+.select-container span {
+  display: block;
+  position: absolute;
+  bottom: 29px;
+  right: 10px;
+  content: "";
+  width: 13px;
+  height: 13px;
+  transform: rotate(45deg);
+  border-bottom: 5px solid #d23732;
+  border-right: 5px solid #d23732;
+  transition: all 0.1s;
+}
+
 input:not([type="checkbox"])::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: rgb(73, 73, 73);
 }
 
 input:not([type="checkbox"]):hover,
-select:hover,
-option:hover,
+.select-container:hover select,
 textarea:hover {
   outline: none;
+  cursor: pointer;
   box-shadow: 0 0 5px 3px rgb(255, 255, 255);
+}
+
+.select-container:hover span {
+  border-bottom: 5px solid #eb433d;
+  border-right: 5px solid #eb433d;
 }
 
 input:not([type="checkbox"]):focus,
 select:focus,
-option:focus,
 textarea:focus {
   outline: none;
   background-color: rgb(253, 253, 253);
   box-shadow: 0 0 5px 3px rgb(255, 255, 255);
 }
 
+select:focus ~ span {
+  border-bottom: 5px solid #eb433d;
+  border-right: 5px solid #eb433d;
+}
+
+/*************/
+/* CHECKBOX  */
 .checkbox {
   display: block;
   width: 80%;
@@ -224,8 +263,8 @@ input.btn {
   transition: all 0.2s;
 }
 
-.btn:hover,
-.btn:active {
+input.btn:hover,
+input.btn:active {
   cursor: pointer;
   background-color: rgb(146, 0, 0);
   color: rgb(253, 253, 253);
@@ -285,4 +324,8 @@ input.warning {
 label {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.select-container select.warning {
+  margin-top: 5px;
 }

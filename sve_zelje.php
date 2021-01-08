@@ -24,6 +24,13 @@
       <tbody>
         <?php
         $wishes_dir = './zelje_db';
+        // Test da li uopšte ima želja, ako nema ispiši da nema
+        if (!is_dir($wishes_dir) || count(scandir($wishes_dir)) === 2) {
+          echo '<h3>Još uvijek nema poslatih želja.</h3>';
+          exit();
+        }
+
+        // Ako ima želja:
         $wishes_arr = scandir($wishes_dir);
         foreach ($wishes_arr as $wish_url) {
           if ($wish_url === '.' || $wish_url === '..') {

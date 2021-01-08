@@ -1,1 +1,0 @@
-{"firstName":"Darinka","lastName":"Milo\u0161evi\u0107","city":"Ulcinj","wish":"Da se sa\u010duva Ada Bojana"}

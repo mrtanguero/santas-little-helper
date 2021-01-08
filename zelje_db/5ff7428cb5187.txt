@@ -1,1 +1,0 @@
-{"firstName":"Dragan","lastName":"Ivanovi\u0107","city":"Herceg Novi","wish":"Meni jedan novi bas, ako mo\u017ee. Hvala unaprijed :)"}

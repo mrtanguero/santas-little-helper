@@ -1,1 +1,0 @@
-{"firstName":"Marko","lastName":"Markovi\u0107","city":"Podgorica","wish":"Ja bih nova kola."}

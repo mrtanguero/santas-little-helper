@@ -1,1 +1,0 @@
-{"firstName":"Vlado","lastName":"Georgiev","city":"Herceg Novi","wish":"Ja bih samo da mogu da u\u0111em u svoju Crnu Goru :'("}

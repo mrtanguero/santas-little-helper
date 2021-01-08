@@ -1,0 +1,1 @@
+{"firstName":"Ivan","lastName":"Jovanovi\u0107","city":"Podgorica","wish":"PS5, a ako nisam ba\u0161 toliko dobar bio onda kamera za PS4. "}

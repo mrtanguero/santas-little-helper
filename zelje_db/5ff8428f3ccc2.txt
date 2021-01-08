@@ -1,1 +1,0 @@
-{"firstName":"Bojan","lastName":"Lozo","city":"Podgorica","wish":"Da me ne gnjavi onaj Jovanovi\u0107 vi\u0161e :("}
