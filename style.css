@@ -17,11 +17,12 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+/* Main container */
 .container {
   background-image: linear-gradient(
       to bottom right,
       rgba(197, 3, 3, 0.8),
-      rgba(148, 0, 0, 0.8)
+      rgba(92, 0, 0, 0.8)
     ),
     url(./img/christmas.jpg);
   background-position: bottom;
@@ -30,8 +31,7 @@ body {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 
   width: 60vw;
-  margin: auto;
-  margin-top: 50px;
+  margin: 50px auto;
 
   padding-top: 20px;
   padding-bottom: 20px;
@@ -41,6 +41,7 @@ body {
   align-items: center;
 }
 
+/* Only for confirmation dijalog */
 .confirmation-container {
   position: absolute;
   top: 50vh;
@@ -54,7 +55,23 @@ h2 {
   font-size: 3em;
   color: rgb(253, 253, 253);
 
+  /* margin-bottom: 20px; */
+}
+
+a:link,
+a:visited {
+  color: rgb(253, 253, 253);
+  text-decoration: none;
+
   margin-bottom: 20px;
+
+  border-bottom: 1px solid rgba(253, 253, 253, 0);
+  transition: all 0.1s;
+}
+
+a:hover,
+a:active {
+  border-bottom: 1px solid rgba(253, 253, 253, 1);
 }
 
 h2 {
@@ -70,11 +87,12 @@ form {
   flex-direction: column;
 }
 
+/* Inputs styling */
 input:not([type="checkbox"]),
 select,
 option,
 textarea {
-  background-color: rgba(255, 255, 255, 0.719);
+  background-color: rgba(255, 255, 255, 0.75);
   color: rgb(37, 37, 37);
 
   border: none;
@@ -87,6 +105,7 @@ textarea {
   font-size: 1.2em;
 
   margin-bottom: 10px;
+  transition: all 0.1s;
 }
 
 input:not([type="checkbox"])::-webkit-input-placeholder,
@@ -94,25 +113,168 @@ textarea::-webkit-input-placeholder {
   color: rgb(73, 73, 73);
 }
 
+input:not([type="checkbox"]):hover,
+select:hover,
+textarea:hover {
+  outline: none;
+  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
+}
+
 input:not([type="checkbox"]):focus,
 select:focus,
-option,
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 5px 1px rgba(252, 252, 252, 0.8);
+  background-color: rgb(253, 253, 253);
+  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
 }
 
 .checkbox {
+  display: block;
   width: 80%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  position: relative;
+  padding-right: 32px;
   margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.checkbox label {
+/* Hide the browser's default checkbox */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+/* On focus highlight checkbox */
+.checkbox input:focus ~ .checkmark {
+  background-color: rgb(253, 253, 253);
+  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
+}
+
+/* On hover highlight checkbox */
+.checkbox input:hover ~ .checkmark {
+  box-shadow: 0 0 5px 3px rgb(255, 255, 255);
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a red background */
+.checkbox input:checked ~ .checkmark {
+  background-color: #d23732;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkmark:after {
+  opacity: 1;
+}
+
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after {
+  left: 10px;
+  top: 5px;
+  width: 10px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input.btn {
+  background-color: rgb(253, 253, 253);
+  color: #920000;
+
+  margin-top: 20px;
+
+  transition: all 0.2s;
+}
+
+.btn:hover,
+.btn:active {
+  cursor: pointer;
+  background-color: rgb(146, 0, 0);
   color: rgb(253, 253, 253);
-  font-size: 1.2em;
+  box-shadow: 0 0 5px 1px rgba(252, 252, 252, 0.8);
+}
+
+label {
+  color: rgb(253, 253, 253);
+}
+
+/* Table styling */
+
+.table-page {
+  width: 80vw;
+  color: rgb(253, 253, 253);
+}
+
+.table-page h1 {
+  margin-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+}
+
+th {
+  text-align: left;
+  border-bottom: 1px solid rgb(253, 253, 253);
+}
+
+th:last-child {
+  text-align: center;
+}
+
+td,
+th {
+  padding: 5px 0px 5px 10px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(253, 253, 253, 0.2);
+}
+
+/* WARNINGS u slučaju grešaka */
+input.warning,
+textarea.warning {
+  background-color: white;
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: inset 0 0 10px 3px rgba(121, 0, 0, 0.4),
+    0 0 5px 3px rgb(255, 255, 255);
+}
+
+label {
+  margin-bottom: 3px;
 }

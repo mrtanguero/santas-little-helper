@@ -6,7 +6,7 @@ if (count($greske) === 0) {
   // Kreiranje novog foldera, ako već ne postoji
   $new_folder = './zelje_db';
   if (!is_dir($new_folder)) {
-    $oldmask = umask(0);
+    $oldmask = umask(0); // riješenje problema sa permissionima
     mkdir($new_folder);
     umask($oldmask);
   }
@@ -20,5 +20,11 @@ if (count($greske) === 0) {
   header('Location: ./zelja_poslata.html');
   exit();
 } else {
-  header('Location: javascript:history.go(-1)');
+  echo json_encode($_POST);
+  print_r($greske);
+  header(
+    'Location: ./index.html'
+      . '?query=' . json_encode($_POST)
+      . '&errors=' . json_encode($greske)
+  );
 }

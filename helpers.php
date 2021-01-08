@@ -5,6 +5,7 @@ $cities = [
   'nk' => 'Nikšić',
   'pv' => 'Pljevlja',
   'bp' => 'Bijelo Polje',
+  'bd' => 'Budva',
   'ct' => 'Cetinje',
   'br' => 'Bar',
   'hn' => 'Herceg Novi',
@@ -48,11 +49,11 @@ function validacija()
   $city = $cities[$wish_arr['city']];
   $wish = $wish_arr['wish-text'];
 
-  if (!is_alpha_mne($first_name)) {
+  if (empty($first_name) || !is_alpha_mne($first_name)) {
     $greske[] = "fname";
   }
 
-  if (!is_alpha_mne($last_name)) {
+  if (empty($last_name) || !is_alpha_mne($last_name)) {
     $greske[] = "lname";
   }
 

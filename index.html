@@ -6,16 +6,30 @@
     <title>Santa's Little Helper</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script defer src="./js/script.js"></script>
   </head>
   <body>
     <div class="container">
       <h1>🎅️ Santa's Little Helper 🎅️</h1>
+      <a href="./sve_zelje.php">Ako si Deda Mraz, klikni ovdje</a>
 
       <!-- Forma -->
       <form action="./sacuvaj_zelju.php" method="POST">
-        <input type="text" name="first-name" placeholder="Unesi svoje ime" />
-        <input type="text" name="last-name" placeholder="Unesi svoje prezime" />
-        <select name="city">
+        <label for="first-name" id="first-name-label"></label>
+        <input
+          type="text"
+          name="first-name"
+          placeholder="Unesi svoje ime"
+          id="first-name"
+        />
+        <label for="last-name" id="last-name-label"></label>
+        <input
+          type="text"
+          name="last-name"
+          placeholder="Unesi svoje prezime"
+          id="last-name"
+        />
+        <select name="city" id="city">
           <option value="pg" selected>Podgorica</option>
           <option value="nk">Nikšić</option>
           <option value="pv">Pljevlja</option>
@@ -38,18 +52,19 @@
           <option value="an">Andrijevica</option>
           <option value="sv">Šavnik</option>
         </select>
-        <div class="checkbox">
-          <label for="was-good">
-            Potvrđujem da sam bio/la dobar/dobra ove godine:
-          </label>
+        <label class="checkbox" for="was-good">
+          Potvrđujem da sam bio/la dobar/dobra ove godine:
           <input type="checkbox" name="was-good" id="was-good" />
-        </div>
+          <span class="checkmark"></span>
+        </label>
+        <label for="wish-text" id="wish-text-label"></label>
         <textarea
           placeholder="Šta Deda Mraz može učiniti za tebe?"
           name="wish-text"
           rows="8"
+          id="wish-text"
         ></textarea>
-        <input type="submit" value="Pošalji" />
+        <input class="btn" type="submit" value="Pošalji" />
       </form>
     </div>
     <!-- CDN i skripta za pahulje -->
@@ -57,8 +72,8 @@
     <script>
       const sf = new Snowflakes({
         color: "#ffffff",
-        count: 100,
-        speed: 1.5,
+        count: 50,
+        speed: 1.3,
         minSize: 15,
         maxSize: 30,
       });
