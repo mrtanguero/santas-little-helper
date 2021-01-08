@@ -70,6 +70,7 @@ if (url.search !== "") {
         break;
       case 6:
         wishTextArea.classList.add("warning");
+        // wasGoodCheckboxLabel.classList.add("mt-10");
         wishTextLabel.textContent = "Polje za želju prazno? Stvarno?!";
         break;
     }
@@ -80,6 +81,9 @@ if (url.search !== "") {
 realCheckbox.addEventListener("keyup", (e) => {
   if (document.activeElement === e.target && e.code === "Space") {
     e.target.checked = !e.target.checked;
+    if (e.target.checked) {
+      wasGoodCheckbox.classList.remove("warning");
+    }
   }
 });
 
@@ -88,8 +92,6 @@ realCheckbox.addEventListener("keyup", (e) => {
 realCheckbox.addEventListener("change", (e) => {
   if (e.target.checked) {
     wasGoodCheckbox.classList.remove("warning");
-  } else {
-    wasGoodCheckbox.classList.add("warning");
   }
 });
 
