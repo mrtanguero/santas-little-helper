@@ -49,24 +49,32 @@ function validacija()
   $city = $cities[$wish_arr['city']];
   $wish = $wish_arr['wish-text'];
 
-  if (empty($first_name) || !is_alpha_mne($first_name)) {
-    $greske[] = "fname";
+  if (empty($first_name)) {
+    $greske[] = 0;
   }
 
-  if (empty($last_name) || !is_alpha_mne($last_name)) {
-    $greske[] = "lname";
+  if (!is_alpha_mne($first_name)) {
+    $greske[] = 1;
+  }
+
+  if (empty($last_name)) {
+    $greske[] = 2;
+  }
+
+  if (!is_alpha_mne($last_name)) {
+    $greske[] = 3;
   }
 
   if (!isset($wish_arr['was-good']) || $wish_arr['was-good'] !== 'on') {
-    $greske[] = "isnt-good";
+    $greske[] = 4;
   }
 
   if (empty($city)) {
-    $greske[] = "city";
+    $greske[] = 5;
   }
 
   if (empty($wish)) {
-    $greske[] = "wish";
+    $greske[] = 6;
   }
 
   return $greske;

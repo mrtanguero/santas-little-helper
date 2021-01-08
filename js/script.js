@@ -1,16 +1,19 @@
 "use strict";
 
 const url = new URL(window.location.href);
-const wasGoodCheckbox = document.getElementById("was-good");
+const wasGoodCheckbox = document.querySelector(".checkmark");
+const realCheckbox = document.getElementById("was-good");
 const fNameInput = document.getElementById("first-name");
 const lNameInput = document.getElementById("last-name");
 const wishTextArea = document.getElementById("wish-text");
 
 // Ovo samo ako nema dodataka urla, tj. ako nije bilo redirecta zbog greške
 if (url.search !== "") {
+  const wasGoodCheckboxLabel = document.querySelector(".checkbox");
   const fNameLabel = document.getElementById("first-name-label");
   const lNameLabel = document.getElementById("last-name-label");
   const citySelect = document.getElementById("city");
+  const cityLabel = document.getElementById("city-label");
   const wishTextLabel = document.getElementById("wish-text-label");
 
   let query = {};
@@ -32,42 +35,65 @@ if (url.search !== "") {
   fNameInput.value = query["first-name"];
   lNameInput.value = query["last-name"];
   citySelect.value = query["city"];
-  wasGoodCheckbox.checked = query["was-good"] ? true : false;
+  realCheckbox.checked = query["was-good"] ? true : false;
   wishTextArea.value = query["wish-text"];
 
   // Prikaži greške korisniku
   for (let error of errors) {
     switch (error) {
-      case "fname":
+      case 0:
+        fNameInput.classList.add("warning");
+        fNameLabel.textContent = "Ovo polje ne smije biti prazno!";
+        break;
+      case 1:
         fNameInput.classList.add("warning");
         fNameLabel.textContent =
-          "Ovo polje ne smije biti prazno i smije imati samo slova!";
+          "Ime ne smije sadržati brojeve i specijalne simbole!";
         break;
-      case "lname":
+      case 2:
+        lNameInput.classList.add("warning");
+        lNameLabel.textContent = "Ovo polje ne smije biti prazno!";
+        break;
+      case 3:
         lNameInput.classList.add("warning");
         lNameLabel.textContent =
-          "Ovo polje ne smije biti prazno i smije imati samo slova!";
+          "Prezime ne smije sadržati brojeve i specijalne simbole";
         break;
-      case "isnt-good":
-        wasGoodCheckbox;
+      case 4:
+        wasGoodCheckbox.classList.add("warning");
+        wasGoodCheckboxLabel.childNodes[0].nodeValue =
+          "Moraš potvrditi da si bio/la dobar/dobra!";
         break;
-      case "wish":
+      case 5:
+        citySelect.classList.add("warning");
+        cityLabel.textContent = "Moraš odabrati grad!";
+        break;
+      case 6:
         wishTextArea.classList.add("warning");
-        wishTextLabel.textContent = "Ovo polje ne smije biti prazno!";
+        wishTextLabel.textContent = "Polje za želju prazno? Stvarno?!";
         break;
     }
   }
 }
 
 // Event listener da bismo mogli preko Spejsa da manipulišemo checkboxom
-wasGoodCheckbox.addEventListener("keyup", (e) => {
+realCheckbox.addEventListener("keyup", (e) => {
   if (document.activeElement === e.target && e.code === "Space") {
     e.target.checked = !e.target.checked;
   }
 });
 
-// Event listeneri da uklonimo klasu warning kad krenu da pišu
-[fNameInput, lNameInput, wasGoodCheckbox, wishTextArea].forEach((el) => {
+// Event listeneri da uklonimo klasu warning kad promijene polje koje je bilo
+// pogrešno
+realCheckbox.addEventListener("change", (e) => {
+  if (e.target.checked) {
+    wasGoodCheckbox.classList.remove("warning");
+  } else {
+    wasGoodCheckbox.classList.add("warning");
+  }
+});
+
+[fNameInput, lNameInput, city, wishTextArea].forEach((el) => {
   el.addEventListener("change", (e) => {
     e.target.classList.remove("warning");
   });
